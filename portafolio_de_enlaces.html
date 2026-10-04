@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Gabriel Benítez Ambriz | Portafolio</title>
+    <meta name="description" content="Enlaces oficiales de Oscar Gabriel Benítez Ambriz. Ingeniero en Manufactura Aeronáutica, Tech & Data, y autor del libro Convergencia.">
+    <meta name="author" content="Oscar Gabriel Benítez Ambriz">
+    <meta name="robots" content="index, follow">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyanGlow: '#06b6d4',
+                        orangeGlow: '#f97316',
+                        whiteGlow: '#f3f4f6',
+                        redGlow: '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            /* Tema aeroespacial oscuro */
+            background-color: #111827; /* bg-gray-900 */
+            color: #f3f4f6;
+        }
+        
+        /* Patrón de malla tecnológica sutil */
+        .tech-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center py-12 px-4 antialiased relative z-10 font-sans selection:bg-cyanGlow selection:text-white">
+    
+    <!-- Malla de fondo -->
+    <div class="tech-grid"></div>
+
+    <main class="w-full max-w-md mx-auto relative">
+        
+        <header class="flex flex-col items-center mb-10 text-center">
+            
+            <!-- Avatar estilizado -->
+            <div class="relative w-28 h-28 mb-5 group">
+                <!-- Brillo de fondo del avatar -->
+                <div class="absolute inset-0 bg-cyan-500 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <!-- Contenedor del avatar -->
+                <div class="w-28 h-28 rounded-full border-2 border-cyan-400 bg-gray-800 flex items-center justify-center relative z-10 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                    <span class="text-3xl font-bold text-cyan-400 tracking-wider drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">OB</span>
+                </div>
+            </div>
+            
+            <!-- Nombre y Biografía -->
+            <h1 class="text-2xl font-bold tracking-tight text-white mb-2">
+                Oscar Gabriel Benítez Ambriz
+            </h1>
+            <p class="text-sm font-medium text-gray-400 max-w-xs mx-auto leading-relaxed">
+                Ingeniero en Manufactura Aeronáutica | Autor de Convergencia | Tech & Data
+            </p>
+        </header>
+
+        <section class="flex flex-col gap-4 w-full">
+            
+            <!-- 1) Libro: Convergencia -->
+            <a href="https://tinyurl.com/CONVERGENCIA-2022" target="_blank" rel="noopener noreferrer" 
+               class="group relative w-full flex items-center p-4 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:-translate-y-1">
+                <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-900 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-book text-xl"></i>
+                </div>
+                <div class="ml-4 flex-grow text-left">
+                    <span class="block font-semibold text-gray-300 group-hover:text-cyan-300 transition-colors">Libro: Convergencia</span>
+                </div>
+            </a>
+
+            <!-- 2) Substack -->
+            <a href="https://substack.com/@benam1" target="_blank" rel="noopener noreferrer" 
+               class="group relative w-full flex items-center p-4 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl transition-all duration-300 hover:border-orange-500 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:-translate-y-1">
+                <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-900 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-solid fa-pen-nib text-xl"></i>
+                </div>
+                <div class="ml-4 flex-grow text-left">
+                    <span class="block font-semibold text-gray-300 group-hover:text-orange-400 transition-colors">Substack</span>
+                </div>
+            </a>
+
+            <!-- 3) GitHub -->
+            <a href="https://github.com/GabrielBenam" target="_blank" rel="noopener noreferrer" 
+               class="group relative w-full flex items-center p-4 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl transition-all duration-300 hover:border-gray-200 hover:shadow-[0_0_15px_rgba(243,244,246,0.4)] hover:-translate-y-1">
+                <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-900 text-gray-200 group-hover:bg-gray-200 group-hover:text-gray-900 transition-colors duration-300">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                </div>
+                <div class="ml-4 flex-grow text-left">
+                    <span class="block font-semibold text-gray-300 group-hover:text-white transition-colors">GitHub</span>
+                </div>
+            </a>
+
+            <!-- 4) YouTube -->
+            <a href="https://www.youtube.com/@gabrielbenam" target="_blank" rel="noopener noreferrer" 
+               class="group relative w-full flex items-center p-4 bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl transition-all duration-300 hover:border-red-500 hover:shadow-[0_0_15px_rgba(239,68,68,0.4)] hover:-translate-y-1">
+                <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gray-900 text-red-500 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                </div>
+                <div class="ml-4 flex-grow text-left">
+                    <span class="block font-semibold text-gray-300 group-hover:text-red-400 transition-colors">YouTube</span>
+                </div>
+            </a>
+
+        </section>
+
+        <!-- Pie de página -->
+        <footer class="mt-12 text-center opacity-60">
+            <p class="text-xs text-gray-400 tracking-wide">
+                &copy; <script>document.write(new Date().getFullYear())</script> Oscar Gabriel Benítez Ambriz
+            </p>
+        </footer>
+        
+    </main>
+</body>
+</html>
