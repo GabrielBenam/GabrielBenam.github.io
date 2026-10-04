@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gabriel Benam | Enlaces</title>
+<meta name="description" content="Gabriel Benam. Ingeniero en Manufactura Aeronáutica y autor de Convergencia.">
+<meta property="og:title" content="Gabriel Benam">
+<meta property="og:description" content="Ingeniero en Manufactura Aeronáutica · Autor de Convergencia">
+<meta property="og:image" content="bg-desktop.webp">
+<meta name="theme-color" content="#08090b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Teléfono: tablero apilado (cabina de cristal). Computadora: emblema central con menú orbital y parallax. */
+:root{
+  color-scheme:dark;
+  --void:#08090b;
+  --panel:rgba(18,19,22,.84);
+  --edge:#2e3036;
+  --ink:#f1ede4;
+  --dim:#a9a49a;
+  --faint:#6f6c66;
+  --amber:#ffb547;
+  --amber-soft:rgba(255,181,71,.35);
+  --f-hud:"Chakra Petch","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--void)}
+html,body{margin:0;height:100%;color:var(--ink)}
+body{font-family:var(--f-hud);-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+
+/* Fondo y efectos */
+.bg{position:fixed;inset:-24px;background:url(bg-mobile.webp) center/cover no-repeat;z-index:-3;will-change:transform}
+.scrim{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(8,9,11,.15) 0%,rgba(8,9,11,.55) 30%,rgba(8,9,11,.92) 55%,var(--void) 100%)}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* ---------- Teléfono (base) ---------- */
+.stage{min-height:100%;display:flex;flex-direction:column;justify-content:flex-end;max-width:460px;margin:0 auto;
+  padding:calc(40px + env(safe-area-inset-top)) 16px calc(20px + env(safe-area-inset-bottom));gap:14px}
+.ident{display:flex;align-items:center;gap:14px}
+.mark{width:58px;height:58px;flex:none;border:1px solid var(--amber);display:grid;place-items:center;font:600 20px/1 var(--f-hud);color:var(--amber);letter-spacing:.06em;position:relative;background:rgba(8,9,11,.5)}
+.mark::before,.mark::after{content:"";position:absolute;width:8px;height:8px;border:1px solid var(--amber)}
+.mark::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
+.mark::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
+h1{margin:0;font:600 26px/1.05 var(--f-hud);letter-spacing:.02em;text-transform:uppercase;text-wrap:balance}
+.role{font:400 11.5px/1.45 var(--f-mono);color:#c9c3b6;margin:4px 0 0}
+.bar{display:flex;justify-content:space-between;font:500 10px/1 var(--f-mono);letter-spacing:.14em;color:var(--amber);border-block:1px solid var(--amber-soft);padding:7px 2px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{position:relative;display:flex;flex-direction:column;gap:6px;min-height:104px;padding:12px 12px 10px;background:var(--panel);border:1px solid var(--edge);border-radius:3px;
+  transition:transform .12s,border-color .2s,background .2s,box-shadow .2s}
+.tile .k{font:500 9.5px/1 var(--f-mono);letter-spacing:.16em;color:#8f8b82}
+.tile .v{font:600 17px/1.1 var(--f-hud);text-transform:uppercase}
+.tile .s{font:400 10.5px/1.3 var(--f-mono);color:var(--dim);overflow-wrap:anywhere}
+.leds{margin-top:auto;display:flex;gap:3px}
+.leds i{flex:1;height:4px;background:#2a2b2f;transition:background .08s}
+.tile.mail{grid-column:1/-1;min-height:auto;align-items:center;text-align:center;padding:14px 12px}
+.tile.mail .leds{display:none}
+.tile:active,.tile.on{transform:scale(.97);border-color:var(--amber);background:rgba(40,30,14,.9)}
+.tile.on .leds i{background:var(--amber)}
+.tile.on .v{color:var(--amber)}
+.foot{font:400 9.5px/1 var(--f-mono);letter-spacing:.14em;color:var(--faint);text-align:center;display:flex;justify-content:center;gap:16px}
+.sound{background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;cursor:pointer;padding:0}
+.sound[aria-pressed="true"]{color:var(--amber)}
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));translate:-50% 12px;opacity:0;background:#000;color:#fff;border:1px solid var(--amber-soft);
+  font:500 11px/1 var(--f-mono);letter-spacing:.06em;padding:10px 14px;transition:opacity .2s,translate .2s;pointer-events:none;z-index:10}
+.toast.show{opacity:1;translate:-50% 0}
+
+/* ---------- Computadora: menú orbital ---------- */
+@media (min-width:900px) and (pointer:fine){
+  .bg{background-image:url(bg-desktop.webp);filter:saturate(.8) blur(1.5px)}
+  .scrim{background:radial-gradient(60% 55% at 50% 50%,rgba(8,9,11,.82) 0%,rgba(8,9,11,.62) 55%,rgba(8,9,11,.9) 100%)}
+  .stage{max-width:none;height:100%;min-height:620px;position:relative;padding:0;display:block}
+  .core{position:absolute;left:50%;top:50%;translate:-50% -50%;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;z-index:2;pointer-events:none}
+  .ident{flex-direction:column;gap:18px}
+  .mark{width:84px;height:84px;font-size:28px}
+  h1{font-size:40px}
+  .role{font-size:12.5px}
+  .bar{width:300px}
+  .links{display:block;position:absolute;inset:0}
+  .tile{position:absolute;left:0;top:0;width:210px;min-height:96px;will-change:transform;
+    background:radial-gradient(160px circle at var(--mx,50%) var(--my,50%),rgba(255,181,71,.16),transparent 70%),var(--panel)}
+  .tile.mail{align-items:flex-start;text-align:left;padding:12px 12px 10px;min-height:96px}
+  .tile.mail .leds{display:flex}
+  .tile:hover{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber-soft),0 0 28px -6px rgba(255,181,71,.55)}
+  .tile:hover .leds i{background:var(--amber)}
+  .tile:hover .v{color:var(--amber)}
+  .tile:active{transform:none}
+  .foot{position:absolute;left:0;right:0;bottom:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" id="bg"></div>
+<div class="scrim"></div>
+<canvas id="fx"></canvas>
+
+<main class="stage" id="stage">
+  <div class="core">
+    <div class="ident">
+      <div class="mark" aria-hidden="true">GB</div>
+      <div>
+        <h1>Gabriel Benam</h1>
+        <p class="role">Ingeniero en Manufactura Aeronáutica<br>Autor de “Convergencia”</p>
+      </div>
+    </div>
+    <div class="bar"><span>SYS · ENLACES</span><span>5 CANALES</span></div>
+  </div>
+
+  <nav class="links" id="links" aria-label="Enlaces">
+    <a class="tile" href="https://tinyurl.com/CONVERGENCIA-2022" target="_blank" rel="noopener noreferrer"><span class="k">01 · LIBRO</span><span class="v">Convergencia</span><span class="s">Leer el libro</span><span class="leds"><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+    <a class="tile" href="https://substack.com/@benam1" target="_blank" rel="noopener noreferrer"><span class="k">02 · NEWSLETTER</span><span class="v">Substack</span><span class="s">@benam1</span><span class="leds"><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+    <a class="tile" href="https://github.com/GabrielBenam" target="_blank" rel="noopener noreferrer"><span class="k">03 · CÓDIGO</span><span class="v">GitHub</span><span class="s">GabrielBenam</span><span class="leds"><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+    <a class="tile" href="https://www.youtube.com/@gabrielbenam" target="_blank" rel="noopener noreferrer"><span class="k">04 · VIDEO</span><span class="v">YouTube</span><span class="s">@gabrielbenam</span><span class="leds"><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+    <a class="tile mail" href="#" data-u="oscarbenam.234" data-d="gmail.com"><span class="k">05 · CONTACTO</span><span class="v">Correo</span><span class="s">Escríbeme</span><span class="leds"><i></i><i></i><i></i><i></i><i></i><i></i></span></a>
+  </nav>
+
+  <div class="foot"><span>GB · PANEL DE ENLACES</span><button class="sound" id="sound" type="button" aria-pressed="false">SONIDO: NO</button></div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const deskQ=matchMedia('(min-width: 900px) and (pointer: fine)');
+const tiles=[...document.querySelectorAll('.tile')];
+const bg=document.getElementById('bg');
+
+/* Sonido de interfaz, generado sin archivos */
+let soundOn=false,actx=null;
+const sb=document.getElementById('sound');
+sb.addEventListener('click',()=>{soundOn=!soundOn;sb.setAttribute('aria-pressed',soundOn);sb.textContent='SONIDO: '+(soundOn?'SÍ':'NO');blip(880);});
+function blip(f){
+  if(!soundOn)return;
+  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(),g=actx.createGain(),t=actx.currentTime;o.type='sine';o.frequency.value=f;
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.06,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+.12);
+    o.connect(g).connect(actx.destination);o.start();o.stop(t+.14);}catch(e){}
+}
+
+/* Correo: la dirección se arma al hacer clic (dificulta que los robots la recolecten) */
+const toast=document.getElementById('toast');
+function show(m){toast.textContent=m;toast.classList.add('show');clearTimeout(show.t);show.t=setTimeout(()=>toast.classList.remove('show'),2600);}
+document.querySelectorAll('.mail').forEach(el=>el.addEventListener('click',e=>{
+  e.preventDefault();const a=el.dataset.u+'@'+el.dataset.d;
+  if(navigator.clipboard)navigator.clipboard.writeText(a).then(()=>show('Copiado: '+a),()=>show(a));else show(a);
+  window.location.href='mailto:'+a;
+}));
+
+/* Pulsación en teléfono */
+tiles.forEach(t=>t.addEventListener('pointerdown',()=>{t.classList.add('on');blip(520);setTimeout(()=>t.classList.remove('on'),380);}));
+
+/* Canvas: partículas con profundidad, pulso al tocar, órbita en computadora */
+const cv=document.getElementById('fx'),cx=cv.getContext('2d');
+let W,H,dpr=Math.min(devicePixelRatio||1,2),pts=[],rings=[];
+let mouse={x:0,y:0,tx:0,ty:0};
+function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+  const n=deskQ.matches?110:40;pts=[];for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,vy:-(Math.random()*.2+.04)});}
+size();addEventListener('resize',size);
+addEventListener('pointermove',e=>{mouse.tx=e.clientX/W-.5;mouse.ty=e.clientY/H-.5;});
+addEventListener('pointerdown',e=>{rings.push({x:e.clientX,y:e.clientY,t:0});
+  pts.forEach(p=>{const dx=p.x-e.clientX,dy=p.y-e.clientY,d=Math.hypot(dx,dy)||1;if(d<150){p.x+=dx/d*20;p.y+=dy/d*20;}});});
+
+/* Órbita */
+let ang=0,hovered=null;
+const mag=new Map(tiles.map(t=>[t,{x:0,y:0,tx:0,ty:0}]));
+tiles.forEach(t=>{
+  t.addEventListener('mouseenter',()=>{hovered=t;blip(740);});
+  t.addEventListener('mouseleave',()=>{hovered=null;const m=mag.get(t);m.tx=0;m.ty=0;});
+  t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect(),m=mag.get(t);
+    const ox=e.clientX-(r.left+r.width/2),oy=e.clientY-(r.top+r.height/2);m.tx=ox*.22;m.ty=oy*.22;
+    t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px');});
+});
+function geom(){return{cxp:W/2+mouse.x*-14,cyp:H/2+mouse.y*-14,rx:Math.min(W*.34,520),ry:Math.min(H*.36,300)};}
+function layout(){
+  if(!deskQ.matches){tiles.forEach(t=>{t.style.transform='';t.style.zIndex='';t.style.opacity='';});bg.style.transform='';return;}
+  const g=geom(),n=tiles.length;
+  tiles.forEach((t,i)=>{
+    const a=ang+i*2*Math.PI/n-Math.PI/2,depth=(Math.sin(a)+1)/2; /* 0 = atrás, 1 = al frente */
+    const s=.86+depth*.14,m=mag.get(t);m.x+=(m.tx-m.x)*.18;m.y+=(m.ty-m.y)*.18;
+    const x=g.cxp+Math.cos(a)*g.rx-t.offsetWidth/2+m.x,y=g.cyp+Math.sin(a)*g.ry-t.offsetHeight/2+m.y;
+    t.style.transform=`translate(${x}px,${y}px) scale(${t===hovered?1.04:s})`;
+    t.style.zIndex=t===hovered?50:Math.round(depth*10)+3;t.style.opacity=t===hovered?1:(.72+depth*.28);
+  });
+  bg.style.transform=`translate(${mouse.x*-22}px,${mouse.y*-22}px)`;
+}
+function drawOrbit(){
+  const g=geom();cx.save();cx.translate(g.cxp,g.cyp);
+  cx.strokeStyle='rgba(255,181,71,.22)';cx.lineWidth=1;cx.beginPath();cx.ellipse(0,0,g.rx,g.ry,0,0,7);cx.stroke();
+  cx.setLineDash([2,8]);cx.strokeStyle='rgba(255,181,71,.18)';cx.beginPath();cx.ellipse(0,0,g.rx*1.12,g.ry*1.12,0,0,7);cx.stroke();cx.setLineDash([]);
+  for(let i=0;i<72;i++){const a=i/72*Math.PI*2,L=i%6===0?10:4;cx.strokeStyle=`rgba(255,181,71,${i%6===0?.4:.15})`;cx.beginPath();
+    cx.moveTo(Math.cos(a)*g.rx*.62,Math.sin(a)*g.ry*.62);cx.lineTo(Math.cos(a)*(g.rx*.62+L),Math.sin(a)*(g.ry*.62+L));cx.stroke();}
+  const sa=ang*-1.6;cx.strokeStyle='rgba(255,181,71,.5)';cx.beginPath();cx.ellipse(0,0,g.rx*.62,g.ry*.62,0,sa,sa+.5);cx.stroke();
+  cx.restore();
+}
+function frame(){
+  mouse.x+=(mouse.tx-mouse.x)*.06;mouse.y+=(mouse.ty-mouse.y)*.06;
+  cx.clearRect(0,0,W,H);
+  const desk=deskQ.matches;
+  for(const p of pts){p.y+=p.vy*(desk?p.z:1);if(p.y<-6){p.y=H+6;p.x=Math.random()*W;}
+    const px=p.x+(desk?mouse.x*-60*p.z:0),py=p.y+(desk?mouse.y*-60*p.z:0);
+    cx.fillStyle=`rgba(255,${200+p.z*40|0},${150+p.z*80|0},${.15+p.z*.5})`;cx.beginPath();cx.arc(px,py,.4+p.z*1.4,0,7);cx.fill();}
+  rings=rings.filter(r=>r.t<1);
+  for(const r of rings){r.t+=.025;for(let k=0;k<3;k++){const tt=r.t-k*.12;if(tt<=0)continue;cx.strokeStyle=`rgba(255,181,71,${(1-tt)*.7})`;cx.lineWidth=1.2;cx.beginPath();cx.arc(r.x,r.y,tt*130,0,7);cx.stroke();}}
+  if(desk){drawOrbit();if(!hovered)ang+=.0016;}
+  layout();
+  requestAnimationFrame(frame);
+}
+deskQ.addEventListener('change',()=>{size();layout();});
+if(reduce){layout();if(deskQ.matches)drawOrbit();}else requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
