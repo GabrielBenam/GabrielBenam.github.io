@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Gabriel Benam | Enlaces</title>
-<meta name="description" content="Gabriel Benam. Ingeniero en Manufactura Aeronáutica. Escribo sobre política científica y poesía.">
+<meta name="description" content="Gabriel Benam. Ingeniero en Manufactura Aeronáutica. Amante de la poesía y la investigación, porque la ciencia es política y el todo es lenguaje.">
 <meta property="og:title" content="Gabriel Benam">
-<meta property="og:description" content="Ingeniero en Manufactura Aeronáutica · Escribo sobre política científica y poesía">
-<meta property="og:image" content="bg-desktop.webp">
+<meta property="og:description" content="Amante de la poesía y la investigación, porque la ciencia es política y el todo es lenguaje.">
+<meta property="og:image" content="foto.webp">
 <meta name="theme-color" content="#08090b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,13 +44,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 .stage{max-width:460px;margin:0 auto;padding:0 44px 0 16px}
 .core{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;padding:calc(48px + env(safe-area-inset-top)) 0 40px}
 .ident{display:flex;flex-direction:column;gap:18px}
-.mark{width:64px;height:64px;flex:none;border:1px solid var(--amber);display:grid;place-items:center;font:600 22px/1 var(--f-hud);color:var(--amber);letter-spacing:.06em;position:relative;background:rgba(8,9,11,.55)}
+.mark{width:96px;height:96px;padding:5px;flex:none;border:1px solid var(--amber);display:grid;place-items:center;font:600 22px/1 var(--f-hud);color:var(--amber);letter-spacing:.06em;position:relative;background:rgba(8,9,11,.55)}
+.mark img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.03)}
 .mark::before,.mark::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--amber)}
 .mark::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
 .mark::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
 h1{margin:0;font:600 40px/.98 var(--f-hud);letter-spacing:.01em;text-transform:uppercase;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.6)}
 .role{font:400 12.5px/1.55 var(--f-mono);color:#d6d0c4;margin:8px 0 0}
-.role span{color:var(--amber)}
+.role span{color:var(--amber);display:block;margin-top:4px;text-wrap:balance}
 .bar{display:flex;justify-content:space-between;font:500 10px/1 var(--f-mono);letter-spacing:.14em;color:var(--amber);border-block:1px solid var(--amber-soft);padding:7px 2px}
 .cue{display:flex;align-items:center;gap:10px;font:500 10px/1 var(--f-mono);letter-spacing:.2em;color:var(--dim)}
 .cue i{width:10px;height:10px;border-right:1px solid var(--amber);border-bottom:1px solid var(--amber);rotate:45deg;animation:cue 1.6s ease-in-out infinite}
@@ -99,8 +100,10 @@ h1{margin:0;font:600 40px/.98 var(--f-hud);letter-spacing:.01em;text-transform:u
   html:not(.force-m) .stage{max-width:none;height:100%;min-height:620px;position:relative;padding:0}
   html:not(.force-m) .core{position:absolute;left:50%;top:50%;translate:-50% -50%;min-height:0;padding:0;align-items:center;gap:14px;text-align:center;z-index:2;pointer-events:none}
   html:not(.force-m) .ident{align-items:center}
-  html:not(.force-m) .mark{width:84px;height:84px;font-size:28px}
+  html:not(.force-m) .mark{width:128px;height:128px;padding:6px}
   html:not(.force-m) .bar{width:320px}
+  html:not(.force-m) .role{max-width:400px;margin-inline:auto}
+  html:not(.force-m) h1{font-size:36px}
   html:not(.force-m) .links{display:block;position:absolute;inset:0;padding:0}
   html:not(.force-m) .tile{position:absolute;left:0;top:0;width:236px;gap:6px;padding:12px 13px 10px;backdrop-filter:none;-webkit-backdrop-filter:none;
     background:radial-gradient(170px circle at var(--mx,50%) var(--my,50%),rgba(255,181,71,.16),transparent 70%),var(--panel)}
@@ -126,10 +129,10 @@ h1{margin:0;font:600 40px/.98 var(--f-hud);letter-spacing:.01em;text-transform:u
 <main class="stage" id="stage">
   <header class="core">
     <div class="ident">
-      <div class="mark" aria-hidden="true">GB</div>
+      <div class="mark"><img src="foto.webp" alt="Foto de Gabriel Benam" width="320" height="320"></div>
       <div>
         <h1>Gabriel Benam</h1>
-        <p class="role">Ingeniero en Manufactura Aeronáutica<br><span>Escribo sobre política científica y poesía</span></p>
+        <p class="role">Ingeniero en Manufactura Aeronáutica<br><span>Amante de la poesía y la investigación, porque la ciencia es política y el todo es lenguaje.</span></p>
       </div>
     </div>
     <div class="bar"><span>SYS · ENLACES</span><span>5 CANALES</span></div>
